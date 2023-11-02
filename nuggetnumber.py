@@ -1,3 +1,5 @@
+#โจทย์ Nugget Number ปี 59
+
 n = int(input())
 
 ways = []
