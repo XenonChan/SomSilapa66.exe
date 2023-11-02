@@ -9,6 +9,8 @@ for a in range(n // boxsize[0] + 1):
             if a * boxsize[0] + b * boxsize[1] + c * boxsize[2] == n:
                 ways.append((a, b, c))
 
+#BruteForce Algolithym
+
 if not ways:
     print("NO")
 else: 
