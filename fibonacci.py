@@ -1,16 +1,14 @@
-a, b = map(int, input().split())
+n  = int(input())
 
-nums = []
+if n == 0 and n == 1:
+    print("0")
+elif n == 2:
+    print("1")
 
-for i in range(a, b + 1):
-    ten = i // 10
-    once = i % 10
-    
-    if ten + once == 9:
-        nums.append(i)
-        
-if nums == []:
-    print("No")
-else:
-    for results in nums:
-        print(results)
+sequence = [0, 1]
+
+while len(sequence) < n:
+    next_num = sequence[-1] + sequence[-2]
+    sequence.append(next_num)
+
+print(sequence[n - 1])

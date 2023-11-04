@@ -1,17 +1,16 @@
-def check_bus(n):
-    if bus_a and bus_b and bus_c:
-        bus_a == true
-    if 
+a, b = map(int, input().split())
 
-bus_a = false
-bus_b = false
-bus_c = false
+nums = []
 
-results = []
-inputs = []
-
-for i in range(1, 8):
-    inputs.append(int(input()))
+for i in range(a, b + 1):
+    ten = i // 10
+    once = i % 10
     
-for j in inputs:
-    
+    if ten + once == 9:
+        nums.append(i)
+        
+if nums == []:
+    print("No")
+else:
+    for results in nums:
+        print(results)
