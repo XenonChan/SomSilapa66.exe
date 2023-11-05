@@ -1,26 +1,18 @@
-def count_numbers(n):
-  """
-  นับจำนวนตัวเลขน้อยกว่า 100 ที่เท่ากับผลรวมของตัวเลขที่คูณด้วย 10 และบวก 1
+n = int(input())
+reverse = 0
 
-  Args:
-    n: ตัวเลขเริ่มต้น
+count = 0
 
-  Returns:
-    จำนวนตัวเลขที่ตรงเงื่อนไข
-  """
+while n > 0:
+    digit = n % 10
+    reverse = reverse * 10 + digit
+    n = n // 10
 
-  reverse = 0
-  count = 0
-
-  for i in range(10, n + 1):
-    if i % 10 == 0:
-      continue
+for i in range(10, n + 1):
+    if n % 10 == 0:
+        pass
     else:
-      number = i * 10 + reverse
-      if number < 100:
-        count += 1
+        if n + reverse < 100:
+            count += 1
 
-  return count
-
-
-print(count_numbers(100))
+print(count)
