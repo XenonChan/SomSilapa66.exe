@@ -21,6 +21,6 @@ for i in inputs:
         if bus[j] < 0:
             bus[j] = 0
 
-print("".join(result))
+print(" ".join(result))
 
 #เสร็จจจจจแล้ววววววววววววววววววววววววววววววววววววววว
