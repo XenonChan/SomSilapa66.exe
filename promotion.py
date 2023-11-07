@@ -10,6 +10,4 @@ elif len(m_list) > m:
 for j in m_list:
     remaining += j
     
-least_table = remaining // n
-
-print(least_table)
+print(remaining // n)
