@@ -15,27 +15,26 @@ for j in range(3):
     print(j + 1)
 
 
+def is_custom_order(number):
+    num_str = str(number)
+    for i in range(len(num_str) - 1):
+        if (int(num_str[i]) + 1 != int(num_str[i + 1])) and (int(num_str[i]) - 2 != int(num_str[i + 1])):
+            return False
+    return True
 
-def is_increasing(number):
-    return all(number[i] <= number[i + 1] for i in range(len(number) - 1))
-
-def is_decreasing(number):
-    return all(number[i] >= number[i + 1] for i in range(len(number) - 1))
-
-def find_increasing_decreasing_numbers(n):
+def find_custom_order_numbers(n):
     numbers = []
     for num in range(100, n + 1):
-        num_str = str(num)
-        if is_increasing(num_str) or is_decreasing(num_str):
-            numbers.append(num_str)
+        if is_custom_order(num):
+            numbers.append(num)
     return numbers
 
 n = int(input("ป้อนค่า n (100-999): "))
 if 100 <= n < 1000:
-    result = find_increasing_decreasing_numbers(n)
+    result = find_custom_order_numbers(n)
     if result:
-        print("ตัวเลขที่เรียงแบบบวกหรือแบบลดลง:", result)
+        print("ตัวเลขที่เรียงตามรูปแบบที่คุณระบุ:", result)
     else:
-        print("ไม่พบตัวเลขที่เรียงแบบบวกหรือแบบลดลงในช่วงนี้")
+        print("ไม่พบตัวเลขที่เรียงตามรูปแบบที่คุณระบุในช่วงนี้")
 else:
     print("โปรดป้อนค่า n ในช่วง 100-999 เท่านั้น")
