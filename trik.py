@@ -15,26 +15,16 @@ for j in range(3):
     print(j + 1)
 
 
-def is_custom_order(number):
-    num_str = str(number)
-    for i in range(len(num_str) - 1):
-        if (int(num_str[i]) + 1 != int(num_str[i + 1])) and (int(num_str[i]) - 2 != int(num_str[i + 1])):
-            return False
-    return True
+def print_number_pyramid(n):
+    current_number = 10
+    for i in range(1, n + 1):
+        row = []
+        for j in range(i):
+            row.append(str(current_number))
+            current_number += 1
+        row_str = ' '.join(row)
+        print(row_str)
 
-def find_custom_order_numbers(n):
-    numbers = []
-    for num in range(100, n + 1):
-        if is_custom_order(num):
-            numbers.append(num)
-    return numbers
-
-n = int(input("ป้อนค่า n (100-999): "))
-if 100 <= n < 1000:
-    result = find_custom_order_numbers(n)
-    if result:
-        print("ตัวเลขที่เรียงตามรูปแบบที่คุณระบุ:", result)
-    else:
-        print("ไม่พบตัวเลขที่เรียงตามรูปแบบที่คุณระบุในช่วงนี้")
-else:
-    print("โปรดป้อนค่า n ในช่วง 100-999 เท่านั้น")
+# ตัวอย่างการเรียกใช้งาน
+n = int(input("ป้อนค่า n: "))
+print_number_pyramid(n)
