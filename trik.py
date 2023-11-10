@@ -15,16 +15,49 @@ for j in range(3):
     print(j + 1)
 
 
-def print_number_pyramid(n):
-    current_number = 10
-    for i in range(1, n + 1):
-        row = []
-        for j in range(i):
-            row.append(str(current_number))
-            current_number += 1
-        row_str = ' '.join(row)
-        print(row_str)
+def find_seven_dwarfs(numbers):
+  """
+  ค้นหาคนแคระทั้งเจ็ดจากตัวเลขทั้งหมด
 
-# ตัวอย่างการเรียกใช้งาน
-n = int(input("ป้อนค่า n: "))
-print_number_pyramid(n)
+  Args:
+    numbers: ตัวเลขทั้งหมด 9 ตัวเลข
+
+  Returns:
+    รายชื่อคนแคระทั้งเจ็ด
+  """
+
+  # ตรวจสอบว่าตัวเลขทั้งหมดไม่ซ้ำกัน
+
+  if len(set(numbers)) != 9:
+    raise ValueError("ตัวเลขซ้ำกัน")
+
+  # ค้นหาผลรวมที่เป็นไปได้ทั้งหมดจากตัวเลขทั้งหมด
+
+  sums = set()
+  for i in range(0, len(numbers)):
+    for j in range(i + 1, len(numbers)):
+      for k in range(j + 1, len(numbers)):
+        sum = numbers[i] + numbers[j] + numbers[k]
+        sums.add(sum)
+
+  # ค้นหาผลรวมที่เท่ากับ 100
+
+  seven_dwarfs = []
+  for sum in sums:
+    if sum == 100:
+      seven_dwarfs.append(numbers[numbers.index(sum) - 1])
+      seven_dwarfs.append(numbers[numbers.index(sum) - 2])
+      seven_dwarfs.append(numbers[numbers.index(sum) - 3])
+      seven_dwarfs.append(numbers[numbers.index(sum) - 4])
+      seven_dwarfs.append(numbers[numbers.index(sum) - 5])
+      seven_dwarfs.append(numbers[numbers.index(sum) - 6])
+      break
+
+  return seven_dwarfs
+
+
+if __name__ == "__main__":
+  numbers = [7, 8, 10, 13, 15, 19, 20, 23, 25]
+  seven_dwarfs = find_seven_dwarfs(numbers)
+  print(seven_dwarfs)
+
